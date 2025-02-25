@@ -1,0 +1,64 @@
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-black: #000;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #1d4844;
+  --bs-secondary: #e85c42;
+}
+
+/* Container global */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center; /* Centrer verticalement */
+  justify-content: flex-start; /* Placer à gauche */
+  width: 100%;
+}
+
+/* Image de la Tour Eiffel */
+.eiffel-image {
+  width: 15vw; /* Taille dynamique en fonction de la largeur de la fenêtre */
+  max-width: 200px; /* Ne pas dépasser cette taille */
+  height: auto; /* Maintenir les proportions */
+  margin-right: 20px; /* Espacement entre l'image et le texte */
+}
+
+/* Mise en page responsive : ajuster l'image sur des écrans plus petits */
+@media (max-width: 768px) {
+  .eiffel-image {
+    width: 20vw; /* Plus grande sur les écrans moyens */
+  }
+}
+
+@media (max-width: 480px) {
+  .eiffel-image {
+    width: 30vw; /* Encore plus grande sur les petits écrans */
+  }
+}
