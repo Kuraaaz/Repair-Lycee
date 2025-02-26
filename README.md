@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Repair Lycée  
 *Réparer, Réutiliser, Renouer*
 
@@ -188,4 +187,3 @@ Ce projet est distribué sous la licence [MIT](https://opensource.org/licenses/M
 ---
 
 **Réparer, c’est valoriser notre futur.**
->>>>>>> 3809d0d13469a6e8ed8a8062aee53340c2e7ca1f
