@@ -1,7 +1,7 @@
 # Repair Lycée  
 *Réparer, Réutiliser, Renouer*
 
-Repair Lycée est une initiative collaborative qui s'inspire du modèle du repair café, adaptée à l'environnement éducatif du **Lycée Gustave Eiffel**. Ce projet vise à promouvoir la réparation d'objets cassés ou dysfonctionnels, à développer des compétences techniques et manuelles chez les élèves, et à renforcer le lien social tout en sensibilisant à la durabilité et au recyclage.
+Repair Lycée est une initiative collaborative qui s'inspire du modèle du repair café, adaptée à l'environnement éducatif du **[Lycée Gustave Eiffel](https://www.eiffel-bordeaux.org)**. Ce projet vise à promouvoir la réparation d'objets cassés ou dysfonctionnels, à développer des compétences techniques et manuelles chez les élèves, et à renforcer le lien social tout en sensibilisant à la durabilité et au recyclage.
 
 ---
 
@@ -45,14 +45,14 @@ Le projet **Repair Lycée** s’inscrit dans une démarche d’économie circula
   - **Professeurs et techniciens**  
   - **Bénévoles** et partenaires externes (professionnels, associations locales)
 
-> *Un planning détaillé et les dates des sessions seront affichés sur le site interne du lycée et communiqués via l’ENT.*
+> *Un planning détaillé et les dates des sessions seront affichés sur le site interne du Repair Lycée et/ou communiqués via l’ENT.*
 
 ---
 
 ## Participation et Contributions
 
 ### Pour les Participants  
-- **Inscription :** Remplir le formulaire en ligne ou s’inscrire directement via l’ENT.  
+- **Inscription :** Remplir le formulaire en ligne. 
 - **Apport d’objets :** Apportez vos objets cassés ou en panne pour les réparer lors des sessions.  
 - **Engagement :** Participez activement aux ateliers et partagez vos connaissances.
 
@@ -83,9 +83,9 @@ Ce projet est distribué sous la licence [MIT](https://opensource.org/licenses/M
 
 ## Contacts et Remerciements
 
-- **Responsable du projet :** *Nom du coordinateur* ([email@example.com](mailto:email@example.com))  
-- **Coordination pédagogique :** *Nom du professeur référent*  
-- **Pour toute question ou proposition :** Contactez-nous via l’ENT ou directement sur ce dépôt GitHub.
+- **Responsable du projet :** *Kura, cl0udy.0, Sweetbreath* ([coulymkurama@gmail.com](mailto:coulymkurama@gmaiL.com)), aniha.bord09@gmail.com
+- **Coordination pédagogique :** *Laurent Levraud*  
+- **Pour toute question ou proposition :** Contactez-nous via la rubrique **Nous Contacter** sur notre site ou directement sur ce dépôt GitHub.
 
 *Un grand merci à tous les participants, bénévoles et partenaires qui rendent ce projet possible. Ensemble, nous contribuons à une démarche plus durable et à l’innovation au sein du lycée.*
 
