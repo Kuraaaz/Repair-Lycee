@@ -1,7 +1,8 @@
+// src/components/Signup.tsx
 import { useState, FormEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import '../styles/signup.css'; // Import du fichier CSS
+import { useAuth } from '../hooks/useAuth';
+import '../styles/signup.css';
 
 const Signup = () => {
   const [emailSignup, setEmailSignup] = useState('');
@@ -18,9 +19,7 @@ const Signup = () => {
   const { token, setToken } = useAuth();
 
   useEffect(() => {
-    // Si le token est présent, on redirige automatiquement vers /account
     if (token) {
-      console.log('Token présent via contexte:', token);
       navigate('/account');
     }
   }, [token, navigate]);
@@ -35,15 +34,18 @@ const Signup = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ email: emailSignup, password: passwordSignup, rememberMe: rememberMeSignup }),
+        body: JSON.stringify({
+          email: emailSignup,
+          password: passwordSignup,
+          rememberMe: rememberMeSignup,
+        }),
       });
-
       const data = await response.json();
       if (!response.ok) {
-        setError(data.error || 'Erreur lors de l\'inscription.');
+        setError(data.error || "Erreur lors de l'inscription.");
       } else {
         setMessage('Inscription réussie ! Redirection...');
-        setToken(data.token); // Met à jour le contexte et localStorage
+        setToken(data.token);
         navigate('/account');
       }
     } catch (err) {
@@ -61,15 +63,18 @@ const Signup = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ email: emailLogin, password: passwordLogin, rememberMe: rememberMeLogin }),
+        body: JSON.stringify({
+          email: emailLogin,
+          password: passwordLogin,
+          rememberMe: rememberMeLogin,
+        }),
       });
-
       const data = await response.json();
       if (!response.ok) {
-        setError(data.error || 'Erreur lors de la connexion.');
+        setError(data.error || "Erreur lors de la connexion.");
       } else {
         setMessage('Connexion réussie ! Redirection...');
-        setToken(data.token); // Met à jour le contexte et localStorage
+        setToken(data.token);
         navigate('/account');
       }
     } catch (err) {

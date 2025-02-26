@@ -1,25 +1,25 @@
-// backend/src/middleware/authMiddleware.js
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 export const authenticateToken = (req, res, next) => {
-  // Récupérer le token depuis le cookie
-  const token = localStorage.getItem('token');
-
+  const authHeader = req.headers['authorization'];
+  const tokenFromHeader = authHeader && authHeader.split(' ')[1];
+  const tokenFromCookie = req.cookies.token;
+  
+  const token = tokenFromHeader || tokenFromCookie;
+  
   if (!token) {
     return res.status(401).json({ error: 'Accès refusé. Veuillez vous connecter.' });
   }
-
-  // Vérifier le token avec la clé secrète
+  
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) {
-      return res.status(403).json({ error: 'Token invalide.' });
+      console.error("Erreur lors de la vérification du token :", err);
+      return res.status(403).json({ error: 'Token invalide', details: err.message });
     }
-
-    // Si le token est valide, ajouter les informations utilisateur à la requête
-    req.user = user; 
-    next(); // Passer au middleware suivant ou à la route
+    req.user = user;
+    next();
   });
-};
+}  

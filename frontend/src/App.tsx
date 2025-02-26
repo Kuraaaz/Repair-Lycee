@@ -1,7 +1,5 @@
-// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { JSX } from 'react';
-import { AuthProvider, useAuth } from './contexts/AuthContext'; // Assurez-vous du chemin correct
+import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Signup from './components/Signup';
 import Account from './components/Account';
@@ -27,18 +25,20 @@ const App = () => {
               </ProtectedRouteWrapper>
             }
           />
-
-          {/* Redirection par défaut */}
+          {/* Vous pouvez ajouter d'autres routes ou redirections par défaut */}
         </Routes>
       </Router>
     </AuthProvider>
   );
 };
 
-const ProtectedRouteWrapper = ({ children }: { children: JSX.Element }) => {
+import { useAuth } from './hooks/useAuth';
+
+const ProtectedRouteWrapper = ({ children }: { children: React.ReactNode }) => {
   const { token } = useAuth();
   const isAuthenticated = Boolean(token);
   return <ProtectedRoute isAuthenticated={isAuthenticated}>{children}</ProtectedRoute>;
 };
+
 
 export default App;
