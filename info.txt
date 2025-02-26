@@ -1,0 +1,1 @@
+This repository and his content is for client side only and not configure for being hosted on servers.

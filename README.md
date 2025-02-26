@@ -83,7 +83,7 @@ Ce projet est distribué sous la licence [MIT](https://opensource.org/licenses/M
 
 ## Contacts et Remerciements
 
-- **Responsable du projet :** *Kura, cl0udy.0, Sweetbreath* ([coulymkurama@gmail.com](mailto:coulymkurama@gmaiL.com)), aniha.bord09@gmail.com
+- **Responsable du projet :** *Kura, cl0udy.0, Sweetbreath* ([coulymkurama@gmail.com](mailto:coulymkurama@gmail.com))
 - **Coordination pédagogique :** *Laurent Levraud*  
 - **Pour toute question ou proposition :** Contactez-nous via la rubrique **Nous Contacter** sur notre site ou directement sur ce dépôt GitHub.
 
