@@ -42,7 +42,6 @@
   width: 100%;
 }
 
-/* Image de la Tour Eiffel */
 .eiffel-image {
   width: 15vw; /* Taille dynamique en fonction de la largeur de la fenêtre */
   max-width: 200px; /* Ne pas dépasser cette taille */

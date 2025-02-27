@@ -1,0 +1,13 @@
+/*src/contexts/Account.tsx (j'me perds sah)*/
+.admin-badge {
+    border: 2px solid red;
+    background-color: red;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    width: fit-content;
+    border-radius: 5px;
+}
+  

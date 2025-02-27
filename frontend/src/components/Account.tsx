@@ -1,7 +1,7 @@
-// src/components/Account.tsx
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { jwtDecode } from 'jwt-decode';
 import '../styles/account.css';
 
 interface UserProfile {
@@ -9,6 +9,10 @@ interface UserProfile {
   nom?: string;
   prenom?: string;
   classe?: string;
+}
+
+interface DecodedToken {
+  isAdmin: boolean;
 }
 
 const Account = () => {
@@ -19,20 +23,31 @@ const Account = () => {
   const [updateError, setUpdateError] = useState<string>('');
   const [updateMessage, setUpdateMessage] = useState<string>('');
   
-  // Champs du formulaire pour compléter le profil
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
   const [classe, setClasse] = useState('');
+
+  // Etat pour le statut admin, obtenu par décodage du token
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (!token) {
       navigate('/signup');
       return;
     }
-  
+    
+    // Décoder le token pour récupérer isAdmin
+    try {
+      const decoded = jwtDecode<DecodedToken>(token);
+      console.log("Token décodé :", decoded);
+      setIsAdmin(decoded.isAdmin);
+    } catch (error) {
+      console.error("Erreur lors du décodage du token :", error);
+    }
+
     fetch('http://localhost:5000/api/auth/profile', {
       method: 'GET',
-      credentials: 'include',
+      credentials: 'include', // Envoie les cookies
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -67,7 +82,7 @@ const Account = () => {
     setUpdateMessage('');
     try {
       const response = await fetch('http://localhost:5000/api/auth/profile', {
-        method: 'PUT', // Route pour mettre à jour le profil
+        method: 'PUT', // Route update profile
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -79,7 +94,6 @@ const Account = () => {
         setUpdateError(data.error || 'Erreur lors de la mise à jour du profil.');
       } else {
         setUpdateMessage('Profil mis à jour avec succès !');
-        // Mise à jour du profil dans le state
         setProfile(prev => prev ? { ...prev, nom, prenom, classe } : null);
       }
     } catch (err) {
@@ -91,6 +105,10 @@ const Account = () => {
   return (
     <div className="account-container">
       <h1>Bienvenue sur votre compte</h1>
+
+      {/* Affichage du badge Admin qs l'user est adm */}
+      {isAdmin && <div className="admin-badge">ADMIN</div>}
+
       {error && <p className="error-message">{error}</p>}
       {profile ? (
         <>

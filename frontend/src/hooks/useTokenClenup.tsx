@@ -10,7 +10,7 @@ const useTokenCleanup = () => {
   const { token, setToken } = useAuth();
 
   useEffect(() => {
-    // Si le token est null, on ne fait rien
+    // Si le token est null y'a r
     if (!token) {
       return;
     }
@@ -37,13 +37,13 @@ const useTokenCleanup = () => {
       }
     };
 
-    // Vérifie immédiatement au montage
+    // Vérifie qd on charge la page
     checkTokenExpiration();
 
-    // Déclenche un interval toutes les 5 secondes
+    // Interval de 5 sec
     const interval = setInterval(checkTokenExpiration, 5000);
 
-    return () => clearInterval(interval); // Nettoyage de l'intervalle
+    return () => clearInterval(interval);
   }, [token, setToken]); // Vérifie à chaque changement du token
 
 };

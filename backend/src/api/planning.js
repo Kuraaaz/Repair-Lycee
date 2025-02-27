@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Modifier le planning (Réservé aux admins)
+// Modifier le planning (Réservé admins)
 router.put('/', authenticateToken, async (req, res) => {
     const { planning } = req.body;
 

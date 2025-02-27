@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 interface PlanningItem {
   id: number; // Chaque planning doit posséder un identifiant unique
   date: string;
-  disponibilite: string; // Adaptez l'orthographe si nécessaire
+  disponibilite: string;
 }
 
 const Planning = () => {
@@ -15,7 +15,7 @@ const Planning = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  // Récupération du statut admin via le backend
+  // On recup admin par la backend
   useEffect(() => {
     if (token) {
       axios
@@ -23,7 +23,7 @@ const Planning = () => {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
-            setIsAdmin(Boolean(response.data.isAdmin)); // Conversion explicite en booléen
+            setIsAdmin(Boolean(response.data.isAdmin)); // Conversion => boolean
           })          
         .catch((err: unknown) =>
           console.error("Erreur de récupération du statut admin", err)
@@ -31,7 +31,6 @@ const Planning = () => {
     }
   }, [token]);
 
-  // Récupération des données du planning depuis le backend
   useEffect(() => {
     if (token) {
       axios
@@ -50,7 +49,6 @@ const Planning = () => {
 
   const handleEditToggle = () => {
     setIsEditing(!isEditing);
-    // Optionnel : réinitialiser editedData si besoin
   };
 
   const handleChange = (
@@ -81,7 +79,7 @@ const Planning = () => {
     <div className="planning-container">
       <h1>Planning des Disponibilités</h1>
 
-      {/* Bouton visible uniquement pour les administrateurs */}
+      {/* Bouton visible pour les admin */}
       {isAdmin && !isEditing && (
         <button onClick={handleEditToggle}>Modifier le planning</button>
       )}

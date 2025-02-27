@@ -8,8 +8,7 @@ dotenv.config();
 
 const router = express.Router();
 
-// GET /api/auth/profile/
-// GET /api/auth/profile/
+// GET /api/auth/profile/ (faut je change la secu des requetes api aussi)
 router.get('/', authenticateToken, async (req, res) => {
   try {
     const userId = req.user.userId;
@@ -21,7 +20,7 @@ router.get('/', authenticateToken, async (req, res) => {
     if (rows.length === 0) {
       console.log(`Profil introuvable pour l'utilisateur ${userId}, création en cours...`);
 
-      // Récupérer l'email de l'utilisateur s'il est stocké ailleurs (ex: table users)
+      // Récupérer l'email
       const [userRows] = await pool.query(
         'SELECT email FROM users WHERE id = ?',
         [userId]

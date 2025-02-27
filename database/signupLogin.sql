@@ -1,3 +1,4 @@
+-- Active: 1740420235665@@127.0.0.1@3306@signin
 CREATE DATABASE IF NOT EXISTS signin;
 USE signin;
 
@@ -8,4 +9,5 @@ CREATE TABLE IF NOT EXISTS users (
   isAdmin BOOLEAN DEFAULT FALSE
 );
 
+/*Pour foutre les gens adm*/
 UPDATE users SET isAdmin = TRUE WHERE email = 'coulymkurama@gmail.com';

@@ -27,7 +27,7 @@ const AccountsButton = () => {
 const Home = () => (
   <div style={{ padding: '20px' }}>
     <h1>Bienvenue sur Repair Lycée</h1>
-    <p>Contenu accessible à tous. Cette page sera complétée plus tard.</p>
+    <p>Nigger</p>
     
     {/* Bouton "Compte" */}
     <AccountsButton />

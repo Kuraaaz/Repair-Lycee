@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        // Vérifier si l'utilisateur existe déjà
+        // Vérifie si user existe dja
         const [existingUser] = await pool.execute(
             'SELECT id FROM users WHERE email = ?',
             [email]
@@ -29,17 +29,16 @@ router.post('/', async (req, res) => {
             return res.status(409).json({ error: 'Utilisateur déjà existant.' });
         }
 
-        // Hachage du mot de passe
+        // Hachage pass
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        // Insertion dans la base avec isAdmin = 0 par défaut
+        // Insertion dans la bdd, isAdmin = 0 par def
         const [result] = await pool.execute(
             'INSERT INTO users (email, password, isAdmin) VALUES (?, ?, ?)',
-            [email, hashedPassword, 0] // Assurez-vous que la colonne `isAdmin` existe dans votre table
+            [email, hashedPassword, 0]
         );
 
-        // Récupération des informations de l'utilisateur après insertion
         const [user] = await pool.execute(
             'SELECT id, isAdmin FROM users WHERE email = ?',
             [email]
@@ -55,13 +54,12 @@ router.post('/', async (req, res) => {
             { 
               userId: user[0].id, 
               email, 
-              isAdmin: user[0].isAdmin  // Cette propriété doit être présente
+              isAdmin: user[0].isAdmin
             }, 
             process.env.JWT_SECRET, 
             { expiresIn: tokenExpiration }
           );          
 
-        // Création du cookie
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',

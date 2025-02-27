@@ -15,7 +15,6 @@ const ProtectedRouteWrapper = ({ children }: { children: React.ReactNode }) => {
 };
 
 const AppContent = () => {
-  // Appel du hook dans le corps du composant
   useTokenCleanup();
 
   return (
@@ -27,7 +26,7 @@ const AppContent = () => {
         {/* Page d'inscription */}
         <Route path="/signup" element={<Signup />} />
 
-        {/* Page de compte protégée */}
+        {/* Page de compte*/}
         <Route
           path="/account"
           element={
